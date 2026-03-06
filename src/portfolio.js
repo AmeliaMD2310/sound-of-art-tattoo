@@ -1,18 +1,18 @@
 import { initNavigation } from './main.js';
 
 const portfolioData = [
-    { id: 1, title: 'Blue Eyed Lion', categories: ['realism', 'color'], image: 'img/Portfolio15.jpeg' },
-    { id: 2, title: 'Johnny Cash Tribute', categories: ['bw', 'portrait'], image: 'img/Portfolio14.jpeg' },
-    { id: 3, title: 'Religious Upper Arm Tattoo', categories: ['bw'], image: 'img/Portfolio13.jpeg' },
-    { id: 4, title: 'Greek Goddess Athena', categories: ['realism', 'bw'], image: 'img/Portfolio12.jpeg' },
-    { id: 5, title: 'Sea Turtle', categories: ['bw', 'realism'], image: 'img/Portfolio11.jpeg' },
-    { id: 6, title: 'Watching Time', categories: ['realism', 'bw'], image: 'img/Portfolio10.jpeg' },
-    { id: 7, title: 'Nordic Wolf', categories: ['realism', 'bw'], image: 'img/Portfolio7.jpeg' },
-    { id: 8, title: 'Nautical Sleeve', categories: ['realism', 'bw'], image: 'img/Portfolio8.jpeg' },
-    { id: 9, title: 'Fierce Lion', categories: ['realism', 'bw'], image: 'img/Portfolio4.jpeg' },
-    { id: 10, title: 'Memorial Cat Portrait', categories: ['color', 'portrait'], image: 'img/Portfolio9.jpeg' },
-    { id: 11, title: 'Warrior Woman', categories: ['realism', 'bw'], image: 'img/Portfolio5.jpeg' },
-    { id: 12, title: 'Red Phoenix', categories: ['color'], image: 'img/Portfolio16.jpeg' },
+    { id: 1, title: 'Blue Eyed Lion', categories: ['realism', 'color'], image: 'public/img/Portfolio15.jpeg' },
+    { id: 2, title: 'Johnny Cash Tribute', categories: ['bw', 'portrait'], image: 'public/img/Portfolio14.jpeg' },
+    { id: 3, title: 'Religious Upper Arm Tattoo', categories: ['bw'], image: 'public/img/Portfolio13.jpeg' },
+    { id: 4, title: 'Greek Goddess Athena', categories: ['realism', 'bw'], image: 'public/img/Portfolio12.jpeg' },
+    { id: 5, title: 'Sea Turtle', categories: ['bw', 'realism'], image: 'public/img/Portfolio11.jpeg' },
+    { id: 6, title: 'Watching Time', categories: ['realism', 'bw'], image: 'public/img/Portfolio10.jpeg' },
+    { id: 7, title: 'Nordic Wolf', categories: ['realism', 'bw'], image: 'public/img/Portfolio7.jpeg' },
+    { id: 8, title: 'Nautical Sleeve', categories: ['realism', 'bw'], image: 'public/img/Portfolio8.jpeg' },
+    { id: 9, title: 'Fierce Lion', categories: ['realism', 'bw'], image: 'public/img/Portfolio4.jpeg' },
+    { id: 10, title: 'Memorial Cat Portrait', categories: ['color', 'portrait'], image: 'public/img/Portfolio9.jpeg' },
+    { id: 11, title: 'Warrior Woman', categories: ['realism', 'bw'], image: 'public/img/Portfolio5.jpeg' },
+    { id: 12, title: 'Red Phoenix', categories: ['color'], image: 'public/img/Portfolio16.jpeg' },
 ];
 
 function renderPortfolio(filter = 'all') {
