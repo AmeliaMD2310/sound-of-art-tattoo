@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sound of Art Tattoo | Custom Artistry</title>
+    <link rel="stylesheet" href="./src/index.css">
+</head>
+<body class="bg-zinc-950 text-zinc-300 font-sans relative">
+    <!-- Grunge Overlay -->
+    <div class="grunge-overlay"></div>
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-zinc-950/40 backdrop-blur-sm border-b border-teal-500/10">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="./index.html" class="flex items-center gap-3 group">
+                <div class="w-12 h-12 bg-teal-600 rounded-full aspect-square flex items-center justify-center group-hover:bg-teal-400 transition-all shadow-[4px_4px_0_rgba(0,0,0,1)] overflow-hidden">
+                    <img src="branding/logo.png" alt="Sound of Art Tattoo Logo" class="w-full h-full object-cover" referrerpolicy="no-referrer">
+                </div>
+                <span class="rock-text text-3xl tracking-tighter uppercase text-teal-500 glitch-hover">Sound of Art Tattoo</span>
+            </a>
+            <nav class="hidden md:flex items-center gap-10">
+                <a href="./index.html" class="grunge-text text-sm uppercase tracking-widest text-teal-400 border-b-2 border-teal-500">Home</a>
+                <a href="./portfolio.html" class="grunge-text text-sm uppercase tracking-widest hover:text-teal-400 transition-colors">Portfolio</a>
+                <a href="#about" class="grunge-text text-sm uppercase tracking-widest hover:text-teal-400 transition-colors">About</a>
+                <a href="#contact" class="px-6 py-2 bg-teal-600 text-zinc-950 rock-text text-sm uppercase tracking-widest hover:bg-teal-400 transition-all shadow-[4px_4px_0_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1">Contact</a>
+            </nav>
+            <button id="mobile-menu-btn" class="md:hidden text-teal-500">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 z-[60] bg-zinc-950 flex flex-col items-center justify-center gap-10 opacity-0 pointer-events-none transition-opacity duration-300">
+        <a href="./index.html" class="rock-text text-5xl uppercase tracking-widest text-teal-400">Home</a>
+        <a href="./portfolio.html" class="rock-text text-5xl uppercase tracking-widest hover:text-teal-400">Portfolio</a>
+        <a href="#about" class="rock-text text-5xl uppercase tracking-widest hover:text-teal-400">About</a>
+        <a href="#contact" class="rock-text text-5xl uppercase tracking-widest hover:text-teal-400">Contact</a>
+        <button id="close-menu-btn" class="absolute top-8 right-8 text-teal-500">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" x2="6" y1="6" y2="18"/><line x1="6" x2="18" y1="6" y2="18"/></svg>
+        </button>
+    </div>
+
+    <!-- Hero Section -->
+   <section class="relative h-screen flex items-center justify-center overflow-hidden pt-20">
+        <!-- Hero Background Panels -->
+        <div class="absolute inset-0 z-0 flex gap-2 md:gap-4 -skew-x-3 md:-skew-x-6 scale-110">
+            <div class="flex-1 h-full overflow-hidden border-x border-teal-500/10">
+                <img 
+                    src="img/Portfolio10.jpeg" 
+                    alt="Portfolio 1" 
+                    class="w-full h-full object-cover opacity-60 skew-x-3 md:skew-x-6 scale-110"
+                    referrerpolicy="no-referrer"
+                >
+            </div>
+            <div class="flex-1 h-full overflow-hidden border-x border-teal-500/10">
+                <img 
+                    src="img/Portfolio14.jpeg" 
+                    alt="Portfolio 2" 
+                    class="w-full h-full object-cover opacity-70 skew-x-3 md:skew-x-6 scale-110"
+                    referrerpolicy="no-referrer"
+                >
+            </div>
+            <div class="flex-1 h-full overflow-hidden border-x border-teal-500/10">
+                <img 
+                    src="img/Portfolio15.jpeg"
+                    class="w-full h-full object-cover opacity-60 skew-x-3 md:skew-x-6 scale-110"
+                    referrerpolicy="no-referrer"
+                >
+            </div>
+        </div>
+        
+        <!-- Global Overlays -->
+        <div class="absolute inset-0 z-[1] bg-gradient-to-t from-zinc-950 via-zinc-950/60 to-transparent"></div>
+        <div class="absolute inset-0 z-[1] opacity-20 bg-[url('https://www.transparenttextures.com/patterns/asfalt-dark.png')]"></div>
+
+        <div class="relative z-10 text-center px-6">
+            <h1 class="rock-text text-7xl md:text-[8rem] leading-none mb-10 text-zinc-100 drop-shadow-[8px_8px_0_rgba(13,148,136,0.3)]">Sound of Art Tattoo</h1>
+            <p class="rock-text text-2xl md:text-4xl text-white/90 mb-4 tracking-widest uppercase">Custom Tattoos by Daggy Ritz</p>
+            <div class="flex flex-col md:flex-row items-center justify-center gap-8">
+                <p class="grunge-text text-zinc-400 text-sm md:text-base uppercase tracking-[0.3em] mb-12">
+                Realism • Black & Grey • Color <span class="mx-2 text-teal-500">|</span> Award-Winning Artist
+            </p>
+            </div>
+            <div class="flex justify-center gap-12">
+                <a href="./portfolio.html" class="px-12 py-5 bg-teal-600 text-zinc-950 rock-text text-2xl uppercase tracking-widest hover:bg-teal-400 transition-all shadow-[6px_6px_0_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1">
+                    See My Work
+                </a>
+                <div class="grunge-text text-zinc-400 text-sm uppercase tracking-widest border-l-4 border-teal-600 pl-8 text-left">
+                    <p class="text-teal-500 font-bold text-xl">Books Currently Closed</p>
+                    <p class="opacity-60">Follow Me on Social Media for Booking Updates</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-40 px-6 max-w-7xl mx-auto grid md:grid-cols-2 gap-24 items-center">
+        <div class="order-2 md:order-1">
+            <h2 class="rock-text text-5xl md:text-7xl mb-10 leading-tight">About the <span class="text-teal-500">Artist</span></h2>
+            <div class="space-y-8 grunge-text text-zinc-400 leading-relaxed text-xl">
+                <p>Daggy is an international award-winning tattoo artist specializing in realism tattoos</p>
+                <p>Her work focuses on creating highly detailed, lifelike pieces in both black and grey and vibrant color.</p>
+                <p>Known for her precision, smooth shading, and ability to capture incredible depth, Daggy transforms ideas and images into tattoos that feel alive on the skin</p>
+                <p>From powerful portraits to striking realism pieces, every tattoo she creates is approached with patience, artistry, and attention to detail.</p>
+                <p>With over a decade of experience and countless tattoos inked, Daggy has built a reputation for delivering stunning, custom tattoos that exceed client expectations.</p>
+            </div>
+        </div>
+        <div class="relative group order-1 md:order-2">
+            <div class="absolute -inset-6 border-4 border-teal-600/10 rotate-[-2deg] group-hover:rotate-0 transition-transform duration-500"></div>
+            <div class="absolute -inset-6 border-4 border-teal-600/10 rotate-[2deg] group-hover:rotate-0 transition-transform duration-500"></div>
+            <img 
+                src="branding/hero.jpg" 
+                alt="Tattoo Studio Interior" 
+                class="relative z-10 grayscale-0 group-hover:grayscale contrast-125 brightness-100 group-hover:brightness-75 transition-all duration-700 shadow-2xl"
+                referrerpolicy="no-referrer"
+            >
+        </div>
+    </section>
+
+    <!-- Social Section -->
+    <section id="contact" class="py-40 bg-zinc-950 border-y border-teal-900/30 relative overflow-hidden">
+        <!-- Background Collage Panels -->
+        <div class="absolute inset-0 z-0 flex gap-2 md:gap-4 skew-x-3 md:skew-x-6 scale-110">
+            <div class="flex-1 h-full overflow-hidden border-x border-teal-500/5">
+                <img 
+                    src="img/Portfolio4.jpeg" 
+                    alt="Portfolio 4" 
+                    class="w-full h-full object-cover opacity-50 -skew-x-3 md:-skew-x-6 scale-110 transition-all duration-700"
+                    referrerpolicy="no-referrer"
+                >
+            </div>
+            <div class="flex-1 h-full overflow-hidden border-x border-teal-500/5">
+                <img 
+                    src="img/Portfolio7.jpeg" 
+                    alt="Portfolio 5" 
+                    class="w-full h-full object-cover opacity-60 -skew-x-3 md:-skew-x-6 scale-110 transition-all duration-700"
+                    referrerpolicy="no-referrer"
+                >
+            </div>
+            <div class="flex-1 h-full overflow-hidden border-x border-teal-500/5">
+                <img 
+                    src="img/Portfolio5.jpeg" 
+                    alt="Portfolio 6" 
+                    class="w-full h-full object-cover opacity-50 -skew-x-3 md:-skew-x-6 scale-110 transition-all duration-700"
+                    referrerpolicy="no-referrer"
+                >
+            </div>
+        </div>
+
+        <!-- Overlays -->
+        <div class="absolute inset-0 z-[1] bg-zinc-950/50"></div>
+        <div class="absolute inset-0 z-[1] opacity-10 bg-[url('https://www.transparenttextures.com/patterns/asfalt-dark.png')]"></div>
+
+        <div class="max-w-7xl mx-auto px-6 text-center relative z-10">
+            <h2 class="rock-text text-4xl md:text-6xl mb-16 uppercase tracking-widest">Get in <span class="text-teal-500">Touch</span></h2>
+            <div class="flex justify-center gap-16">
+                <a href="https://instagram.com" target="_blank" class="group flex flex-col items-center gap-6">
+                    <div class="w-24 h-24 border-2 border-teal-600/30 flex items-center justify-center group-hover:bg-teal-600 group-hover:text-zinc-950 transition-all duration-300 rotate-[-4deg] group-hover:rotate-0 shadow-[8px_8px_0_rgba(0,0,0,1)]">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                    </div>
+                    <span class="grunge-text text-sm uppercase tracking-[0.3em] text-zinc-500 group-hover:text-teal-500 transition-colors">Instagram</span>
+                </a>
+                <a href="https://facebook.com" target="_blank" class="group flex flex-col items-center gap-6">
+                    <div class="w-24 h-24 border-2 border-teal-600/30 flex items-center justify-center group-hover:bg-teal-600 group-hover:text-zinc-950 transition-all duration-300 rotate-[4deg] group-hover:rotate-0 shadow-[8px_8px_0_rgba(0,0,0,1)]">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                    </div>
+                    <span class="grunge-text text-sm uppercase tracking-[0.3em] text-zinc-500 group-hover:text-teal-500 transition-colors">Facebook</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-20 px-6 border-t border-teal-900/20">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
+            <div class="flex items-center gap-4">
+                <div class="w-10 h-10 bg-teal-600 rounded-full aspect-square flex items-center justify-center overflow-hidden shadow-[4px_4px_0_rgba(0,0,0,1)]">
+                    <img src="branding/logo.png" alt="Sound of Art Tattoo Logo" class="w-full h-full object-cover" referrerpolicy="no-referrer">
+                </div>
+                <span class="rock-text text-2xl text-teal-500 uppercase tracking-tighter">Sound of Art Tattoo</span>
+            </div>
+            <p class="grunge-text text-xs text-zinc-600 uppercase tracking-[0.2em]">© 2026 Sound of Art Tattoo.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="./src/main.js"></script>
+</body>
+</html>
+
