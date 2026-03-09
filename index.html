@@ -7,34 +7,33 @@
     <link rel="stylesheet" href="/src/index.css">
 </head>
 <body class="bg-zinc-950 text-zinc-300 font-sans relative">
-    <!-- Grunge Overlay -->
     <div class="grunge-overlay"></div>
 
-    <!-- Header -->
     <header class="fixed top-0 left-0 w-full z-50 bg-zinc-950/40 backdrop-blur-sm border-b border-teal-500/10">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="/" class="flex items-center gap-3 group">
+            <a href="./index.html" class="flex items-center gap-3 group">
                 <div class="w-12 h-12 bg-teal-600 rounded-full aspect-square flex items-center justify-center group-hover:bg-teal-400 transition-all shadow-[4px_4px_0_rgba(0,0,0,1)] overflow-hidden">
                     <img src="branding/logo.png" alt="Sound of Art Tattoo Logo" class="w-full h-full object-cover" referrerpolicy="no-referrer">
                 </div>
                 <span class="rock-text text-3xl tracking-tighter uppercase text-teal-500 glitch-hover">Sound of Art Tattoo</span>
             </a>
+
             <nav class="hidden md:flex items-center gap-10">
-                <a href="/" class="grunge-text text-sm uppercase tracking-widest text-teal-400 border-b-2 border-teal-500">Home</a>
-                <a href="/portfolio.html" class="grunge-text text-sm uppercase tracking-widest hover:text-teal-400 transition-colors">Portfolio</a>
+                <a href="./index.html" class="grunge-text text-sm uppercase tracking-widest text-teal-400 border-b-2 border-teal-500">Home</a>
+                <a href="./portfolio.html" class="grunge-text text-sm uppercase tracking-widest hover:text-teal-400 transition-colors">Portfolio</a>
                 <a href="#about" class="grunge-text text-sm uppercase tracking-widest hover:text-teal-400 transition-colors">About</a>
                 <a href="#contact" class="px-6 py-2 bg-teal-600 text-zinc-950 rock-text text-sm uppercase tracking-widest hover:bg-teal-400 transition-all shadow-[4px_4px_0_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1">Contact</a>
             </nav>
+
             <button id="mobile-menu-btn" class="md:hidden text-teal-500">
                 <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
             </button>
         </div>
     </header>
 
-    <!-- Mobile Menu Overlay -->
     <div id="mobile-menu" class="fixed inset-0 z-[60] bg-zinc-950 flex flex-col items-center justify-center gap-10 opacity-0 pointer-events-none transition-opacity duration-300">
-        <a href="/" class="rock-text text-5xl uppercase tracking-widest text-teal-400">Home</a>
-        <a href="/portfolio.html" class="rock-text text-5xl uppercase tracking-widest hover:text-teal-400">Portfolio</a>
+        <a href="./index.html" class="rock-text text-5xl uppercase tracking-widest text-teal-400">Home</a>
+        <a href="./portfolio.html" class="rock-text text-5xl uppercase tracking-widest hover:text-teal-400">Portfolio</a>
         <a href="#about" class="rock-text text-5xl uppercase tracking-widest hover:text-teal-400">About</a>
         <a href="#contact" class="rock-text text-5xl uppercase tracking-widest hover:text-teal-400">Contact</a>
         <button id="close-menu-btn" class="absolute top-8 right-8 text-teal-500">
@@ -42,36 +41,19 @@
         </button>
     </div>
 
-    <!-- Hero Section -->
-   <section class="relative h-screen flex items-center justify-center overflow-hidden pt-20">
-        <!-- Hero Background Panels -->
+    <section class="relative h-screen flex items-center justify-center overflow-hidden pt-20">
         <div class="absolute inset-0 z-0 flex gap-2 md:gap-4 -skew-x-3 md:-skew-x-6 scale-110">
             <div class="flex-1 h-full overflow-hidden border-x border-teal-500/10">
-                <img 
-                    src="img/Portfolio10.jpeg" 
-                    alt="Portfolio 1" 
-                    class="w-full h-full object-cover opacity-60 skew-x-3 md:skew-x-6 scale-110"
-                    referrerpolicy="no-referrer"
-                >
+                <img src="img/Portfolio10.jpeg" alt="Portfolio 1" class="w-full h-full object-cover opacity-60 skew-x-3 md:skew-x-6 scale-110" referrerpolicy="no-referrer">
             </div>
             <div class="flex-1 h-full overflow-hidden border-x border-teal-500/10">
-                <img 
-                    src="img/Portfolio14.jpeg" 
-                    alt="Portfolio 2" 
-                    class="w-full h-full object-cover opacity-70 skew-x-3 md:skew-x-6 scale-110"
-                    referrerpolicy="no-referrer"
-                >
+                <img src="img/Portfolio14.jpeg" alt="Portfolio 2" class="w-full h-full object-cover opacity-70 skew-x-3 md:skew-x-6 scale-110" referrerpolicy="no-referrer">
             </div>
             <div class="flex-1 h-full overflow-hidden border-x border-teal-500/10">
-                <img 
-                    src="img/Portfolio15.jpeg"
-                    class="w-full h-full object-cover opacity-60 skew-x-3 md:skew-x-6 scale-110"
-                    referrerpolicy="no-referrer"
-                >
+                <img src="img/Portfolio15.jpeg" class="w-full h-full object-cover opacity-60 skew-x-3 md:skew-x-6 scale-110" referrerpolicy="no-referrer">
             </div>
         </div>
-        
-        <!-- Global Overlays -->
+
         <div class="absolute inset-0 z-[1] bg-gradient-to-t from-zinc-950 via-zinc-950/60 to-transparent"></div>
         <div class="absolute inset-0 z-[1] opacity-20 bg-[url('https://www.transparenttextures.com/patterns/asfalt-dark.png')]"></div>
 
@@ -80,11 +62,11 @@
             <p class="rock-text text-2xl md:text-4xl text-white/90 mb-4 tracking-widest uppercase">Custom Tattoos by Daggy Ritz</p>
             <div class="flex flex-col md:flex-row items-center justify-center gap-8">
                 <p class="grunge-text text-zinc-400 text-sm md:text-base uppercase tracking-[0.3em] mb-12">
-                Realism • Black & Grey • Color <span class="mx-2 text-teal-500">|</span> Award-Winning Artist
-            </p>
+                    Realism • Black & Grey • Color <span class="mx-2 text-teal-500">|</span> Award-Winning Artist
+                </p>
             </div>
             <div class="flex justify-center gap-12">
-                <a href="/portfolio.html" class="px-12 py-5 bg-teal-600 text-zinc-950 rock-text text-2xl uppercase tracking-widest hover:bg-teal-400 transition-all shadow-[6px_6px_0_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1">
+                <a href="./portfolio.html" class="px-12 py-5 bg-teal-600 text-zinc-950 rock-text text-2xl uppercase tracking-widest hover:bg-teal-400 transition-all shadow-[6px_6px_0_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1">
                     See My Work
                 </a>
                 <div class="grunge-text text-zinc-400 text-sm uppercase tracking-widest border-l-4 border-teal-600 pl-8 text-left">
@@ -95,7 +77,6 @@
         </div>
     </section>
 
-    <!-- About Section -->
     <section id="about" class="py-40 px-6 max-w-7xl mx-auto grid md:grid-cols-2 gap-24 items-center">
         <div class="order-2 md:order-1">
             <h2 class="rock-text text-5xl md:text-7xl mb-10 leading-tight">About the <span class="text-teal-500">Artist</span></h2>
@@ -110,46 +91,23 @@
         <div class="relative group order-1 md:order-2">
             <div class="absolute -inset-6 border-4 border-teal-600/10 rotate-[-2deg] group-hover:rotate-0 transition-transform duration-500"></div>
             <div class="absolute -inset-6 border-4 border-teal-600/10 rotate-[2deg] group-hover:rotate-0 transition-transform duration-500"></div>
-            <img 
-                src="branding/hero.jpg" 
-                alt="Tattoo Studio Interior" 
-                class="relative z-10 grayscale-0 group-hover:grayscale contrast-125 brightness-100 group-hover:brightness-75 transition-all duration-700 shadow-2xl"
-                referrerpolicy="no-referrer"
-            >
+            <img src="branding/hero.jpg" alt="Tattoo Studio Interior" class="relative z-10 grayscale-0 group-hover:grayscale contrast-125 brightness-100 group-hover:brightness-75 transition-all duration-700 shadow-2xl" referrerpolicy="no-referrer">
         </div>
     </section>
 
-    <!-- Social Section -->
     <section id="contact" class="py-40 bg-zinc-950 border-y border-teal-900/30 relative overflow-hidden">
-        <!-- Background Collage Panels -->
         <div class="absolute inset-0 z-0 flex gap-2 md:gap-4 skew-x-3 md:skew-x-6 scale-110">
             <div class="flex-1 h-full overflow-hidden border-x border-teal-500/5">
-                <img 
-                    src="img/Portfolio4.jpeg" 
-                    alt="Portfolio 4" 
-                    class="w-full h-full object-cover opacity-50 -skew-x-3 md:-skew-x-6 scale-110 transition-all duration-700"
-                    referrerpolicy="no-referrer"
-                >
+                <img src="img/Portfolio4.jpeg" alt="Portfolio 4" class="w-full h-full object-cover opacity-50 -skew-x-3 md:-skew-x-6 scale-110 transition-all duration-700" referrerpolicy="no-referrer">
             </div>
             <div class="flex-1 h-full overflow-hidden border-x border-teal-500/5">
-                <img 
-                    src="img/Portfolio7.jpeg" 
-                    alt="Portfolio 5" 
-                    class="w-full h-full object-cover opacity-60 -skew-x-3 md:-skew-x-6 scale-110 transition-all duration-700"
-                    referrerpolicy="no-referrer"
-                >
+                <img src="img/Portfolio7.jpeg" alt="Portfolio 5" class="w-full h-full object-cover opacity-60 -skew-x-3 md:-skew-x-6 scale-110 transition-all duration-700" referrerpolicy="no-referrer">
             </div>
             <div class="flex-1 h-full overflow-hidden border-x border-teal-500/5">
-                <img 
-                    src="img/Portfolio5.jpeg" 
-                    alt="Portfolio 6" 
-                    class="w-full h-full object-cover opacity-50 -skew-x-3 md:-skew-x-6 scale-110 transition-all duration-700"
-                    referrerpolicy="no-referrer"
-                >
+                <img src="img/Portfolio5.jpeg" alt="Portfolio 6" class="w-full h-full object-cover opacity-50 -skew-x-3 md:-skew-x-6 scale-110 transition-all duration-700" referrerpolicy="no-referrer">
             </div>
         </div>
 
-        <!-- Overlays -->
         <div class="absolute inset-0 z-[1] bg-zinc-950/50"></div>
         <div class="absolute inset-0 z-[1] opacity-10 bg-[url('https://www.transparenttextures.com/patterns/asfalt-dark.png')]"></div>
 
@@ -172,7 +130,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="py-20 px-6 border-t border-teal-900/20">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
             <div class="flex items-center gap-4">
