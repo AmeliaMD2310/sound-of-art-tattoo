@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aftercare | Sound of Art Tattoo</title>
+
+    <link rel="stylesheet" href="/src/styles.css">
+</head>
+
+<body class="bg-zinc-950 text-zinc-300 font-sans relative">
+    <!-- Grunge Overlay -->
+    <div class="grunge-overlay"></div>
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-zinc-950/40 backdrop-blur-sm border-b border-teal-500/10">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="/sound-of-art-tattoo/" class="flex items-center gap-3 group">
+                <div class="w-12 h-12 bg-teal-600 rounded-full aspect-square flex items-center justify-center group-hover:bg-teal-400 transition-all shadow-[4px_4px_0_rgba(0,0,0,1)] overflow-hidden">
+                    <img src="branding/logo.png" alt="Sound of Art Tattoo Logo" class="w-full h-full object-cover" referrerpolicy="no-referrer">
+                </div>
+                <span class="rock-text text-3xl tracking-tighter uppercase text-white glitch-hover drop-shadow-[4px_4px_0_rgba(13,148,136,0.3)]">Sound of Art Tattoo</span>
+            </a>
+            <nav class="hidden md:flex items-center gap-10">
+                <a href="/sound-of-art-tattoo/" class="grunge-text text-sm uppercase tracking-widest hover:text-teal-400 transition-colors">Home</a>
+                <a href="/sound-of-art-tattoo/#about" class="grunge-text text-sm uppercase tracking-widest hover:text-teal-400 transition-colors">About</a>
+                <a href="/sound-of-art-tattoo/portfolio.html" class="grunge-text text-sm uppercase tracking-widest hover:text-teal-400 transition-colors">Portfolio</a>
+                <a href="/sound-of-art-tattoo/faq.html" class="grunge-text text-sm uppercase tracking-widest hover:text-teal-400 transition-colors">FAQ</a>
+                <a href="/sound-of-art-tattoo/aftercare.html" class="grunge-text text-sm uppercase tracking-widest text-teal-400 border-b-2 border-teal-500">Aftercare</a>
+                <a href="/sound-of-art-tattoo/#contact" class="px-6 py-2 bg-teal-600 text-zinc-950 rock-text text-sm uppercase tracking-widest hover:bg-teal-400 transition-all shadow-[4px_4px_0_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1">Contact</a>
+            </nav>
+            <button id="mobile-menu-btn" class="md:hidden text-teal-500">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 z-[60] bg-zinc-950 flex flex-col items-center justify-center gap-10 opacity-0 pointer-events-none transition-opacity duration-300">
+        <a href="/sound-of-art-tattoo/" class="rock-text text-5xl uppercase tracking-widest hover:text-teal-400">Home</a>
+        <a href="/sound-of-art-tattoo/#about" class="rock-text text-5xl uppercase tracking-widest hover:text-teal-400">About</a>
+        <a href="/sound-of-art-tattoo/portfolio.html" class="rock-text text-5xl uppercase tracking-widest hover:text-teal-400">Portfolio</a>
+        <a href="/sound-of-art-tattoo/faq.html" class="rock-text text-5xl uppercase tracking-widest hover:text-teal-400">FAQ</a>
+        <a href="/sound-of-art-tattoo/aftercare.html" class="rock-text text-5xl uppercase tracking-widest text-teal-400">Aftercare</a>
+        <a href="/sound-of-art-tattoo/#contact" class="rock-text text-5xl uppercase tracking-widest hover:text-teal-400">Contact</a>
+        <button id="close-menu-btn" class="absolute top-8 right-8 text-teal-500">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" x2="6" y1="6" y2="18"/><line x1="6" x2="18" y1="6" y2="18"/></svg>
+        </button>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-[70vh] flex items-center justify-center overflow-hidden pt-20">
+        <div class="absolute inset-0 z-0 flex gap-2 md:gap-4 -skew-x-3 md:-skew-x-6 scale-110">
+            <div class="flex-1 h-full overflow-hidden border-x border-teal-500/10">
+                <img
+                    src="img/Portfolio10.jpeg"
+                    alt="Aftercare background 1"
+                    class="w-full h-full object-cover opacity-60 skew-x-3 md:skew-x-6 scale-110"
+                    referrerpolicy="no-referrer"
+                >
+            </div>
+            <div class="flex-1 h-full overflow-hidden border-x border-teal-500/10">
+                <img
+                    src="img/Portfolio14.jpeg"
+                    alt="Aftercare background 2"
+                    class="w-full h-full object-cover opacity-70 skew-x-3 md:skew-x-6 scale-110"
+                    referrerpolicy="no-referrer"
+                >
+            </div>
+            <div class="flex-1 h-full overflow-hidden border-x border-teal-500/10">
+                <img
+                    src="img/Portfolio15.jpeg"
+                    alt="Aftercare background 3"
+                    class="w-full h-full object-cover opacity-60 skew-x-3 md:skew-x-6 scale-110"
+                    referrerpolicy="no-referrer"
+                >
+            </div>
+        </div>
+
+        <div class="absolute inset-0 z-[1] bg-gradient-to-t from-zinc-950 via-zinc-950/60 to-transparent"></div>
+        <div class="absolute inset-0 z-[1] opacity-20 bg-[url('https://www.transparenttextures.com/patterns/asfalt-dark.png')]"></div>
+
+        <div class="relative z-10 text-center px-6 max-w-5xl mx-auto">
+            <h1 class="grunge-text text-6xl md:text-[7rem] leading-none mb-8 text-zinc-100 drop-shadow-[8px_8px_0_rgba(13,148,136,0.3)] uppercase tracking-tighter">
+                Tattoo Aftercare
+            </h1>
+            <p class="grunge-text text-2xl md:text-4xl text-white/90 mb-4 tracking-widest uppercase">
+                Heal it right. Keep it bold.
+            </p>
+            <p class="grunge-text text-zinc-400 text-sm md:text-base uppercase tracking-[0.3em] max-w-3xl mx-auto">
+                Simple steps to help your tattoo heal cleanly and stay vibrant
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="py-32 px-6 max-w-5xl mx-auto">
+        <section class="mb-16">
+            <h2 class="grunge-text text-4xl md:text-5xl uppercase tracking-tighter text-teal-500 mb-6">
+                Congratulations on Your New Tattoo
+            </h2>
+            <div class="space-y-6 grunge-text text-zinc-400 leading-relaxed text-lg">
+                <p>
+                    Your new tattoo is a custom piece of art made just for you. Proper aftercare is one of the most important parts of the process because it helps your tattoo heal well and keeps the details, shading, and colour looking their best.
+                </p>
+                <p>
+                    Your artist has already followed high standards for hygiene and safety. Now it’s your turn to protect the tattoo while it heals.
+                </p>
+            </div>
+        </section>
+
+        <section id="aftercare-accordion" class="space-y-6">
+            <div class="aftercare-item group border border-teal-900/30 bg-zinc-900/50 backdrop-blur-sm hover:border-teal-500/50 transition-all duration-300">
+                <button class="aftercare-trigger w-full flex items-center justify-between p-8 text-left">
+                    <span class="grunge-text text-2xl md:text-3xl uppercase tracking-wider group-hover:text-teal-400 transition-colors">1. The First 24–48 Hours</span>
+                    <span class="aftercare-icon text-teal-500 transition-transform duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                    </span>
+                </button>
+                <div class="aftercare-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                    <div class="p-8 pt-0 grunge-text text-zinc-400 leading-relaxed text-lg border-t border-teal-900/10 mt-4">
+                        <p class="mb-4">
+                            Your tattoo may be covered with a second skin bandage, sometimes called Saniderm or Derm Shield. This helps protect the area from dirt, bacteria, and friction while the first stage of healing begins.
+                        </p>
+                        <ul class="space-y-2 list-disc pl-6">
+                            <li>Keep it on for 24–48 hours unless your artist says otherwise.</li>
+                            <li>Some trapped ink or plasma under the bandage is normal.</li>
+                            <li>Once removed, the tattoo should be cleaned and allowed to breathe.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="aftercare-item group border border-teal-900/30 bg-zinc-900/50 backdrop-blur-sm hover:border-teal-500/50 transition-all duration-300">
+                <button class="aftercare-trigger w-full flex items-center justify-between p-8 text-left">
+                    <span class="grunge-text text-2xl md:text-3xl uppercase tracking-wider group-hover:text-teal-400 transition-colors">2. Removing the Bandage</span>
+                    <span class="aftercare-icon text-teal-500 transition-transform duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                    </span>
+                </button>
+                <div class="aftercare-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                    <div class="p-8 pt-0 grunge-text text-zinc-400 leading-relaxed text-lg border-t border-teal-900/10 mt-4">
+                        <ol class="space-y-2 list-decimal pl-6">
+                            <li>Lift one corner of the bandage carefully.</li>
+                            <li>If it feels stuck, run warm water over it.</li>
+                            <li>Peel it back slowly and close to the skin.</li>
+                            <li>Throw it away and get ready for your first wash.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="aftercare-item group border border-teal-900/30 bg-zinc-900/50 backdrop-blur-sm hover:border-teal-500/50 transition-all duration-300">
+                <button class="aftercare-trigger w-full flex items-center justify-between p-8 text-left">
+                    <span class="grunge-text text-2xl md:text-3xl uppercase tracking-wider group-hover:text-teal-400 transition-colors">3. First Wash</span>
+                    <span class="aftercare-icon text-teal-500 transition-transform duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                    </span>
+                </button>
+                <div class="aftercare-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                    <div class="p-8 pt-0 grunge-text text-zinc-400 leading-relaxed text-lg border-t border-teal-900/10 mt-4">
+                        <p class="mb-4">
+                            Wash the tattoo gently using lukewarm water and fragrance-free soap. Use clean hands only.
+                        </p>
+                        <ul class="space-y-2 list-disc pl-6">
+                            <li>Rinse gently.</li>
+                            <li>Pat dry with a clean paper towel.</li>
+                            <li>Let it air dry for 10–15 minutes.</li>
+                            <li>Apply a very thin layer of unscented aftercare lotion if recommended.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="aftercare-item group border border-teal-900/30 bg-zinc-900/50 backdrop-blur-sm hover:border-teal-500/50 transition-all duration-300">
+                <button class="aftercare-trigger w-full flex items-center justify-between p-8 text-left">
+                    <span class="grunge-text text-2xl md:text-3xl uppercase tracking-wider group-hover:text-teal-400 transition-colors">4. Daily Care Routine</span>
+                    <span class="aftercare-icon text-teal-500 transition-transform duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                    </span>
+                </button>
+                <div class="aftercare-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                    <div class="p-8 pt-0 grunge-text text-zinc-400 leading-relaxed text-lg border-t border-teal-900/10 mt-4 space-y-6">
+                        <div>
+                            <h3 class="grunge-text text-xl uppercase tracking-wider text-zinc-100 mb-2">Keep It Clean</h3>
+                            <p>Wash it twice a day using mild soap and warm water.</p>
+                        </div>
+                        <div>
+                            <h3 class="grunge-text text-xl uppercase tracking-wider text-zinc-100 mb-2">Moisturize Lightly</h3>
+                            <p>Use a thin layer of fragrance-free aftercare lotion. Soft skin is the goal, not greasy skin.</p>
+                        </div>
+                        <div>
+                            <h3 class="grunge-text text-xl uppercase tracking-wider text-zinc-100 mb-2">Let It Breathe</h3>
+                            <p>Wear loose, breathable clothing so the tattoo is not constantly rubbed.</p>
+                        </div>
+                        <div>
+                            <h3 class="grunge-text text-xl uppercase tracking-wider text-zinc-100 mb-2">Stay Hydrated</h3>
+                            <p>Healthy skin heals better, so drink plenty of water.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="aftercare-item group border border-teal-900/30 bg-zinc-900/50 backdrop-blur-sm hover:border-teal-500/50 transition-all duration-300">
+                <button class="aftercare-trigger w-full flex items-center justify-between p-8 text-left">
+                    <span class="grunge-text text-2xl md:text-3xl uppercase tracking-wider group-hover:text-teal-400 transition-colors">5. What to Avoid</span>
+                    <span class="aftercare-icon text-teal-500 transition-transform duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                    </span>
+                </button>
+                <div class="aftercare-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                    <div class="p-8 pt-0 grunge-text text-zinc-400 leading-relaxed text-lg border-t border-teal-900/10 mt-4">
+                        <ul class="space-y-2 list-disc pl-6">
+                            <li>Do not scratch, pick, or peel flaking skin.</li>
+                            <li>Avoid swimming, hot tubs, baths, and soaking for 2–3 weeks.</li>
+                            <li>Avoid intense workouts or heavy sweating for the first few days.</li>
+                            <li>Keep it out of direct sunlight while healing.</li>
+                            <li>Avoid harsh skincare, perfumes, or alcohol-based products on the tattoo.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="aftercare-item group border border-teal-900/30 bg-zinc-900/50 backdrop-blur-sm hover:border-teal-500/50 transition-all duration-300">
+                <button class="aftercare-trigger w-full flex items-center justify-between p-8 text-left">
+                    <span class="grunge-text text-2xl md:text-3xl uppercase tracking-wider group-hover:text-teal-400 transition-colors">6. Healing Stages</span>
+                    <span class="aftercare-icon text-teal-500 transition-transform duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                    </span>
+                </button>
+                <div class="aftercare-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                    <div class="p-8 pt-0 grunge-text text-zinc-400 leading-relaxed text-lg border-t border-teal-900/10 mt-4">
+                        <ul class="space-y-2 list-disc pl-6">
+                            <li><strong class="text-zinc-100">Days 1–3:</strong> Tenderness, redness, and some plasma are normal.</li>
+                            <li><strong class="text-zinc-100">Days 4–7:</strong> Peeling and flaking may begin.</li>
+                            <li><strong class="text-zinc-100">Days 7–14:</strong> Itching is common, but do not scratch.</li>
+                            <li><strong class="text-zinc-100">Days 14+:</strong> The tattoo may look slightly cloudy while the new skin settles, this is completely normal and the appearance of your tattoo will enhance over time.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="aftercare-item group border border-teal-900/30 bg-zinc-900/50 backdrop-blur-sm hover:border-teal-500/50 transition-all duration-300">
+                <button class="aftercare-trigger w-full flex items-center justify-between p-8 text-left">
+                    <span class="grunge-text text-2xl md:text-3xl uppercase tracking-wider group-hover:text-teal-400 transition-colors">7. When to Get Help</span>
+                    <span class="aftercare-icon text-teal-500 transition-transform duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                    </span>
+                </button>
+                <div class="aftercare-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                    <div class="p-8 pt-0 grunge-text text-zinc-400 leading-relaxed text-lg border-t border-teal-900/10 mt-4">
+                        <ul class="space-y-2 list-disc pl-6">
+                            <p class="mb-4">
+                            Reach out to your artist or a healthcare professional if you notice anything that seems unusual or severe such as.
+                            </p>
+                            <li>Strong redness or swelling that continues or worsens after the first few days</li>
+                            <li>Yellow or green discharge</li>
+                            <li>Foul-smelling odour from the tattoo</li>
+                            <li>Rash, bumps, or severe irritation</li>
+                            <li>Fever, chills, or pain spreading beyond the tattoo area</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="aftercare-item group border border-teal-900/30 bg-zinc-900/50 backdrop-blur-sm hover:border-teal-500/50 transition-all duration-300">
+                <button class="aftercare-trigger w-full flex items-center justify-between p-8 text-left">
+                    <span class="grunge-text text-2xl md:text-3xl uppercase tracking-wider group-hover:text-teal-400 transition-colors">8. Long-Term Care</span>
+                    <span class="aftercare-icon text-teal-500 transition-transform duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                    </span>
+                </button>
+                <div class="aftercare-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                    <div class="p-8 pt-0 grunge-text text-zinc-400 leading-relaxed text-lg border-t border-teal-900/10 mt-4">
+                        <ul class="space-y-2 list-disc pl-6">
+                            <li>Moisturize regularly with fragrance-free lotion.</li>
+                            <li>Use SPF 50+ sunscreen on healed tattoos to help prevent fading.</li>
+                            <li>Touch-ups may be helpful over time depending on placement and wear.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Social Section -->
+    <section id="contact" class="py-40 bg-zinc-950 border-y border-teal-900/30 relative overflow-hidden">
+        <div class="absolute inset-0 z-0 flex gap-2 md:gap-4 skew-x-3 md:skew-x-6 scale-110">
+            <div class="flex-1 h-full overflow-hidden border-x border-teal-500/5">
+                <img
+                    src="img/Portfolio4.jpeg"
+                    alt="Portfolio 4"
+                    class="w-full h-full object-cover opacity-50 -skew-x-3 md:-skew-x-6 scale-110 transition-all duration-700"
+                    referrerpolicy="no-referrer"
+                >
+            </div>
+            <div class="flex-1 h-full overflow-hidden border-x border-teal-500/5">
+                <img
+                    src="img/Portfolio7.jpeg"
+                    alt="Portfolio 5"
+                    class="w-full h-full object-cover opacity-60 -skew-x-3 md:-skew-x-6 scale-110 transition-all duration-700"
+                    referrerpolicy="no-referrer"
+                >
+            </div>
+            <div class="flex-1 h-full overflow-hidden border-x border-teal-500/5">
+                <img
+                    src="img/Portfolio5.jpeg"
+                    alt="Portfolio 6"
+                    class="w-full h-full object-cover opacity-50 -skew-x-3 md:-skew-x-6 scale-110 transition-all duration-700"
+                    referrerpolicy="no-referrer"
+                >
+            </div>
+        </div>
+
+        <div class="absolute inset-0 z-[1] bg-zinc-950/50"></div>
+        <div class="absolute inset-0 z-[1] opacity-10 bg-[url('https://www.transparenttextures.com/patterns/asfalt-dark.png')]"></div>
+
+        <div class="max-w-7xl mx-auto px-6 text-center relative z-10">
+            <h2 class="rock-text text-4xl md:text-6xl mb-16 uppercase tracking-widest">Get in <span class="text-teal-500">Touch</span></h2>
+            <div class="flex justify-center gap-16">
+                <a href="https://instagram.com" target="_blank" class="group flex flex-col items-center gap-6">
+                    <div class="w-24 h-24 border-2 border-teal-600/30 flex items-center justify-center group-hover:bg-teal-600 group-hover:text-zinc-950 transition-all duration-300 rotate-[-4deg] group-hover:rotate-0 shadow-[8px_8px_0_rgba(0,0,0,1)]">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                    </div>
+                    <span class="grunge-text text-sm uppercase tracking-[0.3em] text-zinc-500 group-hover:text-teal-500 transition-colors">Instagram</span>
+                </a>
+                <a href="https://facebook.com" target="_blank" class="group flex flex-col items-center gap-6">
+                    <div class="w-24 h-24 border-2 border-teal-600/30 flex items-center justify-center group-hover:bg-teal-600 group-hover:text-zinc-950 transition-all duration-300 rotate-[4deg] group-hover:rotate-0 shadow-[8px_8px_0_rgba(0,0,0,1)]">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                    </div>
+                    <span class="grunge-text text-sm uppercase tracking-[0.3em] text-zinc-500 group-hover:text-teal-500 transition-colors">Facebook</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-20 px-6 border-t border-teal-900/20">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
+            <div class="flex items-center gap-4">
+                <div class="w-10 h-10 bg-teal-600 rounded-full aspect-square flex items-center justify-center overflow-hidden shadow-[4px_4px_0_rgba(0,0,0,1)]">
+                    <img src="branding/logo.png" alt="Sound of Art Tattoo Logo" class="w-full h-full object-cover" referrerpolicy="no-referrer">
+                </div>
+                <span class="rock-text text-2xl text-white uppercase tracking-tighter drop-shadow-[4px_4px_0_rgba(13,148,136,0.25)]">Sound of Art Tattoo</span>
+            </div>
+            <p class="grunge-text text-xs text-zinc-600 uppercase tracking-[0.2em]">© 2026 Sound of Art Tattoo.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="/src/aftercare.js"></script>
+</body>
+</html>
