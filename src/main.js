@@ -193,6 +193,8 @@ export function initVideoCarousel() {
     const lightbox = document.getElementById('video-lightbox');
     const lightboxVideo = document.getElementById('lightbox-video');
     const closeLightboxBtn = document.getElementById('close-video-lightbox');
+    const lightboxPrevBtn = document.getElementById('lightbox-prev-video');
+    const lightboxNextBtn = document.getElementById('lightbox-next-video');
 
     if (!track || !prevBtn || !nextBtn || !container) return;
 
@@ -376,6 +378,20 @@ export function initVideoCarousel() {
 
     if (closeLightboxBtn) {
         closeLightboxBtn.addEventListener('click', closeLightbox);
+    }
+
+    if (lightboxPrevBtn) {
+        lightboxPrevBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            prevLightboxVideo();
+        });
+    }
+
+    if (lightboxNextBtn) {
+        lightboxNextBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            nextLightboxVideo();
+        });
     }
 
     if (lightbox) {
