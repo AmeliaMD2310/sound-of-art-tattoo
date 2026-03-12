@@ -439,3 +439,34 @@ export function initVideoCarousel() {
     setCardWidths();
     updateCarousel();
 }
+
+// ============================================
+// About image mobile tap interaction
+// Makes the image behave like hover on touch devices
+// ============================================
+export function initAboutImageTouch() {
+    const aboutImageGroup = document.getElementById('about-image-group');
+
+    if (!aboutImageGroup) return;
+
+    const isMobileView = () => window.innerWidth < 768;
+
+    aboutImageGroup.addEventListener('click', () => {
+        if (!isMobileView()) return;
+
+        aboutImageGroup.classList.toggle('is-touched');
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!isMobileView()) return;
+        if (!aboutImageGroup.contains(e.target)) {
+            aboutImageGroup.classList.remove('is-touched');
+        }
+    });
+
+    window.addEventListener('resize', () => {
+        if (!isMobileView()) {
+            aboutImageGroup.classList.remove('is-touched');
+        }
+    });
+}
