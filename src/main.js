@@ -68,11 +68,13 @@ export function initNavigation() {
 
             const isHomePage =
                 pathname === '/' ||
-                pathname.endsWith('/index.html');
+                pathname.endsWith('/index.html') ||
+                pathname.endsWith('/sound-of-art-tattoo/') ||
+                pathname.endsWith('/sound-of-art-tattoo');
 
             // Highlight Home only when on the home page with no hash
             if (
-                (href === '/' || href === '/index.html') &&
+                (href === '/sound-of-art-tattoo/' || href === '/sound-of-art-tattoo/index.html') &&
                 isHomePage &&
                 !hash
             ) {
@@ -81,7 +83,7 @@ export function initNavigation() {
 
             // Highlight About when the URL hash is #about
             if (
-                (href === '#about' || href === '/#about') &&
+                (href === '#about' || href === '/#about' || href === '/sound-of-art-tattoo/#about') &&
                 hash === '#about'
             ) {
                 link.classList.add('text-teal-400', 'border-b-2', 'border-teal-500');
@@ -89,7 +91,7 @@ export function initNavigation() {
 
             // Highlight Contact when the URL hash is #contact
             if (
-                (href === '#contact' || href === '/#contact') &&
+                (href === '#contact' || href === '/#contact' || href === '/sound-of-art-tattoo/#contact') &&
                 hash === '#contact'
             ) {
                 link.classList.add('text-teal-400', 'border-b-2', 'border-teal-500');
@@ -97,7 +99,7 @@ export function initNavigation() {
 
             // Highlight Portfolio when on portfolio.html
             if (
-                href === '/portfolio.html' &&
+                href === '/sound-of-art-tattoo/portfolio.html' &&
                 pathname.endsWith('/portfolio.html')
             ) {
                 link.classList.add('text-teal-400', 'border-b-2', 'border-teal-500');
@@ -105,7 +107,7 @@ export function initNavigation() {
 
             // Highlight FAQ when on faq.html
             if (
-                href === '/faq.html' &&
+                href === '/sound-of-art-tattoo/faq.html' &&
                 pathname.endsWith('/faq.html')
             ) {
                 link.classList.add('text-teal-400', 'border-b-2', 'border-teal-500');
@@ -113,7 +115,7 @@ export function initNavigation() {
 
             // Highlight Aftercare when on aftercare.html
             if (
-                href === '/aftercare.html' &&
+                href === '/sound-of-art-tattoo/aftercare.html' &&
                 pathname.endsWith('/aftercare.html')
             ) {
                 link.classList.add('text-teal-400', 'border-b-2', 'border-teal-500');
@@ -122,21 +124,29 @@ export function initNavigation() {
     };
 
     // Add smooth scrolling to same-page anchor links and home-page hash links
-    document.querySelectorAll('a[href^="#"], a[href^="/#"]').forEach(anchor => {
+    document.querySelectorAll('a[href^="#"], a[href^="/#"], a[href^="/sound-of-art-tattoo/#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             const href = this.getAttribute('href');
             if (!href) return;
 
             const isSamePageHash = href.startsWith('#');
             const isHomeHashFromHome =
-                href.startsWith('/#') &&
-                (window.location.pathname === '/' || window.location.pathname.endsWith('/index.html'));
+                (href.startsWith('/#') || href.startsWith('/sound-of-art-tattoo/#')) &&
+                (
+                    window.location.pathname === '/' ||
+                    window.location.pathname.endsWith('/index.html') ||
+                    window.location.pathname.endsWith('/sound-of-art-tattoo/') ||
+                    window.location.pathname.endsWith('/sound-of-art-tattoo')
+                );
 
             // If this is a same-page section link, prevent the normal jump
             if (isSamePageHash || isHomeHashFromHome) {
                 e.preventDefault();
 
-                const targetId = href.replace('/#', '').replace('#', '');
+                const targetId = href
+                    .replace('/sound-of-art-tattoo/#', '')
+                    .replace('/#', '')
+                    .replace('#', '');
 
                 history.pushState(null, '', `#${targetId}`);
                 smoothScroll(targetId);
