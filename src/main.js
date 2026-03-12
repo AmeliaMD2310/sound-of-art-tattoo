@@ -193,6 +193,8 @@ export function initVideoCarousel() {
     const lightbox = document.getElementById('video-lightbox');
     const lightboxVideo = document.getElementById('lightbox-video');
     const closeLightboxBtn = document.getElementById('close-video-lightbox');
+    const lightboxPrevBtn = document.getElementById('lightbox-prev-video');
+    const lightboxNextBtn = document.getElementById('lightbox-next-video');
 
     if (!track || !prevBtn || !nextBtn || !container) return;
 
@@ -201,6 +203,8 @@ export function initVideoCarousel() {
 
     let currentIndex = 0;
     let lightboxIndex = 0;
+    let touchStartX = 0;
+    let touchEndX = 0;
 
     // Maximum number of cards we want visible on desktop
     const MAX_VISIBLE = 3;
@@ -261,6 +265,10 @@ export function initVideoCarousel() {
         lightboxVideo.innerHTML = '';
         lightboxVideo.poster = video.getAttribute('poster') || '';
 
+        // Enable sound in fullscreen mode
+        lightboxVideo.muted = false;
+        lightboxVideo.volume = 1;
+
         const newSource = document.createElement('source');
         newSource.src = source.getAttribute('src');
         newSource.type = source.getAttribute('type') || 'video/mp4';
@@ -274,9 +282,9 @@ export function initVideoCarousel() {
         }
     };
 
-    // Open video in fullscreen-style lightbox on mobile only
+    // Open video in fullscreen-style lightbox
     const openLightbox = (index) => {
-        if (!isMobileView() || !lightbox || !lightboxVideo) return;
+        if (!lightbox || !lightboxVideo) return;
 
         lightboxIndex = index;
         loadLightboxVideo(lightboxIndex);
@@ -286,7 +294,7 @@ export function initVideoCarousel() {
         document.body.style.overflow = 'hidden';
     };
 
-    // Close mobile lightbox
+    // Close fullscreen lightbox
     const closeLightbox = () => {
         if (!lightbox || !lightboxVideo) return;
 
@@ -308,9 +316,23 @@ export function initVideoCarousel() {
         loadLightboxVideo(lightboxIndex);
     };
 
+    // Handle swipe gestures in fullscreen mode
+    const handleLightboxSwipe = () => {
+        const swipeDistance = touchEndX - touchStartX;
+
+        // Ignore very small movements so taps do not trigger navigation
+        if (Math.abs(swipeDistance) < 50) return;
+
+        if (swipeDistance < 0) {
+            nextLightboxVideo();
+        } else {
+            prevLightboxVideo();
+        }
+    };
+
     nextBtn.addEventListener('click', () => {
-        // On mobile, if lightbox is open, move through fullscreen videos
-        if (isMobileView() && lightbox && !lightbox.classList.contains('hidden')) {
+        // If lightbox is open, move through fullscreen videos
+        if (lightbox && !lightbox.classList.contains('hidden')) {
             nextLightboxVideo();
             return;
         }
@@ -323,8 +345,8 @@ export function initVideoCarousel() {
     });
 
     prevBtn.addEventListener('click', () => {
-        // On mobile, if lightbox is open, move through fullscreen videos
-        if (isMobileView() && lightbox && !lightbox.classList.contains('hidden')) {
+        // If lightbox is open, move through fullscreen videos
+        if (lightbox && !lightbox.classList.contains('hidden')) {
             prevLightboxVideo();
             return;
         }
@@ -347,17 +369,29 @@ export function initVideoCarousel() {
         }
     });
 
-    // Make cards tappable on mobile only
+    // Make cards clickable on all screen sizes
     cards.forEach((card, index) => {
         card.addEventListener('click', () => {
-            if (isMobileView()) {
-                openLightbox(index);
-            }
+            openLightbox(index);
         });
     });
 
     if (closeLightboxBtn) {
         closeLightboxBtn.addEventListener('click', closeLightbox);
+    }
+
+    if (lightboxPrevBtn) {
+        lightboxPrevBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            prevLightboxVideo();
+        });
+    }
+
+    if (lightboxNextBtn) {
+        lightboxNextBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            nextLightboxVideo();
+        });
     }
 
     if (lightbox) {
@@ -366,21 +400,38 @@ export function initVideoCarousel() {
                 closeLightbox();
             }
         });
+
+        lightbox.addEventListener('touchstart', (e) => {
+            if (lightbox.classList.contains('hidden')) return;
+            touchStartX = e.changedTouches[0].clientX;
+        });
+
+        lightbox.addEventListener('touchend', (e) => {
+            if (lightbox.classList.contains('hidden')) return;
+            touchEndX = e.changedTouches[0].clientX;
+            handleLightboxSwipe();
+        });
     }
 
-    // Close lightbox on Escape
+    // Close lightbox on Escape and move between videos with arrow keys
     document.addEventListener('keydown', (e) => {
+        if (!lightbox || lightbox.classList.contains('hidden')) return;
+
         if (e.key === 'Escape') {
             closeLightbox();
+        }
+
+        if (e.key === 'ArrowRight') {
+            nextLightboxVideo();
+        }
+
+        if (e.key === 'ArrowLeft') {
+            prevLightboxVideo();
         }
     });
 
     // Resize handler
     window.addEventListener('resize', () => {
-        if (!isMobileView()) {
-            closeLightbox();
-        }
-
         setCardWidths();
         updateCarousel();
     });
@@ -388,4 +439,3 @@ export function initVideoCarousel() {
     setCardWidths();
     updateCarousel();
 }
-
