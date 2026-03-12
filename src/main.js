@@ -66,57 +66,39 @@ export function initNavigation() {
             const href = link.getAttribute('href');
             if (!href) return;
 
-            const isHomePage =
-                pathname === '/' ||
-                pathname.endsWith('/index.html') ||
-                pathname.endsWith('/sound-of-art-tattoo/') ||
-                pathname.endsWith('/sound-of-art-tattoo');
+            const linkUrl = new URL(href, window.location.origin);
 
-            // Highlight Home only when on the home page with no hash
+            // Highlight the current page link
+            if (linkUrl.pathname === pathname && !linkUrl.hash && !hash) {
+                link.classList.add('text-teal-400', 'border-b-2', 'border-teal-500');
+            }
+
+            // Highlight the current section link when the hash matches
+            if (linkUrl.hash && linkUrl.hash === hash) {
+                link.classList.add('text-teal-400', 'border-b-2', 'border-teal-500');
+            }
+
+            // Highlight the current page link even when a hash is present on that page
+            if (linkUrl.pathname === pathname && !linkUrl.hash && hash && pathname.endsWith('/index.html')) {
+                link.classList.add('text-teal-400', 'border-b-2', 'border-teal-500');
+            }
+
+            // Highlight Home when on the repo root with no hash
             if (
-                (href === '/sound-of-art-tattoo/' || href === '/sound-of-art-tattoo/index.html') &&
-                isHomePage &&
+                (pathname.endsWith('/sound-of-art-tattoo/') || pathname.endsWith('/sound-of-art-tattoo')) &&
+                (linkUrl.pathname.endsWith('/sound-of-art-tattoo/') || linkUrl.pathname.endsWith('/sound-of-art-tattoo')) &&
+                !linkUrl.hash &&
                 !hash
             ) {
                 link.classList.add('text-teal-400', 'border-b-2', 'border-teal-500');
             }
 
-            // Highlight About when the URL hash is #about
+            // Highlight Home when on the repo root and a section hash is present
             if (
-                (href === '#about' || href === '/#about' || href === '/sound-of-art-tattoo/#about') &&
-                hash === '#about'
-            ) {
-                link.classList.add('text-teal-400', 'border-b-2', 'border-teal-500');
-            }
-
-            // Highlight Contact when the URL hash is #contact
-            if (
-                (href === '#contact' || href === '/#contact' || href === '/sound-of-art-tattoo/#contact') &&
-                hash === '#contact'
-            ) {
-                link.classList.add('text-teal-400', 'border-b-2', 'border-teal-500');
-            }
-
-            // Highlight Portfolio when on portfolio.html
-            if (
-                href === '/sound-of-art-tattoo/portfolio.html' &&
-                pathname.endsWith('/portfolio.html')
-            ) {
-                link.classList.add('text-teal-400', 'border-b-2', 'border-teal-500');
-            }
-
-            // Highlight FAQ when on faq.html
-            if (
-                href === '/sound-of-art-tattoo/faq.html' &&
-                pathname.endsWith('/faq.html')
-            ) {
-                link.classList.add('text-teal-400', 'border-b-2', 'border-teal-500');
-            }
-
-            // Highlight Aftercare when on aftercare.html
-            if (
-                href === '/sound-of-art-tattoo/aftercare.html' &&
-                pathname.endsWith('/aftercare.html')
+                (pathname.endsWith('/sound-of-art-tattoo/') || pathname.endsWith('/sound-of-art-tattoo')) &&
+                (linkUrl.pathname.endsWith('/sound-of-art-tattoo/') || linkUrl.pathname.endsWith('/sound-of-art-tattoo')) &&
+                !linkUrl.hash &&
+                hash
             ) {
                 link.classList.add('text-teal-400', 'border-b-2', 'border-teal-500');
             }
