@@ -219,14 +219,22 @@ html.splash-seen .splash-screen {
   }
 }
 
-/* Mobile tap state for About image */
+/* Mobile footer social icons visibility improvement */
 @media (max-width: 767px) {
-  #about-image-group.is-touched .about-frame-left,
-  #about-image-group.is-touched .about-frame-right {
-    transform: rotate(0deg);
+
+  footer a {
+    background: rgba(20, 184, 166, 0.25); /* teal with transparency */
+    border: 1px solid rgba(20, 184, 166, 0.35);
+    backdrop-filter: blur(4px);
+
+    padding: 10px;
+    border-radius: 6px;
+
+    transition: all 0.25s ease;
   }
 
-  #about-image-group.is-touched .about-image {
-    filter: grayscale(100%) brightness(0.75);
+  footer a:hover {
+    background: rgba(20, 184, 166, 0.45);
   }
+
 }
