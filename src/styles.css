@@ -219,22 +219,3 @@ html.splash-seen .splash-screen {
   }
 }
 
-/* Mobile footer social icons visibility improvement */
-@media (max-width: 767px) {
-
-  footer a {
-    background: rgba(20, 184, 166, 0.25); /* teal with transparency */
-    border: 1px solid rgba(20, 184, 166, 0.35);
-    backdrop-filter: blur(4px);
-
-    padding: 10px;
-    border-radius: 6px;
-
-    transition: all 0.25s ease;
-  }
-
-  footer a:hover {
-    background: rgba(20, 184, 166, 0.45);
-  }
-
-}
