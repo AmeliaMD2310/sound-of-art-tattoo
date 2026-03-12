@@ -183,12 +183,16 @@ export function initSplashScreen() {
 // ============================================
 // Video carousel logic
 // Always shows up to 3 cards unless there are fewer than 3, in which case it shows only those
+// On mobile, shows 1 larger card at a time and allows fullscreen video viewing
 // ============================================
 export function initVideoCarousel() {
     const track = document.getElementById('video-track');
     const prevBtn = document.getElementById('prev-video');
     const nextBtn = document.getElementById('next-video');
     const container = document.getElementById('video-carousel-container');
+    const lightbox = document.getElementById('video-lightbox');
+    const lightboxVideo = document.getElementById('lightbox-video');
+    const closeLightboxBtn = document.getElementById('close-video-lightbox');
 
     if (!track || !prevBtn || !nextBtn || !container) return;
 
@@ -197,12 +201,15 @@ export function initVideoCarousel() {
 
     let currentIndex = 0;
 
-    // Maximum number of cards we want visible
+    // Maximum number of cards we want visible on desktop
     const MAX_VISIBLE = 3;
+
+    // Check whether the screen is mobile sized
+    const isMobileView = () => window.innerWidth < 768;
 
     // Calculate how many cards should be visible
     const getVisibleCards = () => {
-        return Math.min(cards.length, MAX_VISIBLE);
+        return isMobileView() ? 1 : Math.min(cards.length, MAX_VISIBLE);
     };
 
     // Set card widths so the visible cards fill the container
@@ -265,8 +272,79 @@ export function initVideoCarousel() {
         }
     });
 
+    // Open video in fullscreen-style lightbox on mobile only
+    const openLightbox = (card) => {
+        if (!isMobileView() || !lightbox || !lightboxVideo) return;
+
+        const source = card.querySelector('source');
+        const video = card.querySelector('video');
+        if (!source || !video) return;
+
+        lightboxVideo.pause();
+        lightboxVideo.innerHTML = '';
+        lightboxVideo.poster = video.getAttribute('poster') || '';
+
+        const newSource = document.createElement('source');
+        newSource.src = source.getAttribute('src');
+        newSource.type = source.getAttribute('type') || 'video/mp4';
+
+        lightboxVideo.appendChild(newSource);
+        lightboxVideo.load();
+
+        lightbox.classList.remove('hidden');
+        lightbox.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+
+        const playPromise = lightboxVideo.play();
+        if (playPromise && typeof playPromise.catch === 'function') {
+            playPromise.catch(() => {});
+        }
+    };
+
+    // Close mobile lightbox
+    const closeLightbox = () => {
+        if (!lightbox || !lightboxVideo) return;
+
+        lightboxVideo.pause();
+        lightbox.classList.add('hidden');
+        lightbox.classList.remove('flex');
+        document.body.style.overflow = '';
+    };
+
+    // Make cards tappable on mobile only
+    cards.forEach(card => {
+        card.addEventListener('click', () => {
+            if (isMobileView()) {
+                openLightbox(card);
+            }
+        });
+    });
+
+    if (closeLightboxBtn) {
+        closeLightboxBtn.addEventListener('click', closeLightbox);
+    }
+
+    if (lightbox) {
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+    }
+
+    // Close lightbox on Escape
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeLightbox();
+        }
+    });
+
     // Resize handler
     window.addEventListener('resize', () => {
+        if (!isMobileView()) {
+            closeLightbox();
+        }
+
         setCardWidths();
         updateCarousel();
     });
