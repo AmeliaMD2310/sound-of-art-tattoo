@@ -200,6 +200,7 @@ export function initVideoCarousel() {
     if (cards.length === 0) return;
 
     let currentIndex = 0;
+    let lightboxIndex = 0;
 
     // Maximum number of cards we want visible on desktop
     const MAX_VISIBLE = 3;
@@ -245,7 +246,79 @@ export function initVideoCarousel() {
         track.style.transform = `translateX(${offset}px)`;
     };
 
+    // Load a specific card's video into the fullscreen lightbox
+    const loadLightboxVideo = (index) => {
+        if (!lightbox || !lightboxVideo) return;
+
+        const card = cards[index];
+        if (!card) return;
+
+        const source = card.querySelector('source');
+        const video = card.querySelector('video');
+        if (!source || !video) return;
+
+        lightboxVideo.pause();
+        lightboxVideo.innerHTML = '';
+        lightboxVideo.poster = video.getAttribute('poster') || '';
+
+        // Enable sound in fullscreen mode
+        lightboxVideo.muted = false;
+        lightboxVideo.volume = 1;
+
+        const newSource = document.createElement('source');
+        newSource.src = source.getAttribute('src');
+        newSource.type = source.getAttribute('type') || 'video/mp4';
+
+        lightboxVideo.appendChild(newSource);
+        lightboxVideo.load();
+
+        const playPromise = lightboxVideo.play();
+        if (playPromise && typeof playPromise.catch === 'function') {
+            playPromise.catch(() => {});
+        }
+    };
+
+    // Open video in fullscreen-style lightbox
+    const openLightbox = (index) => {
+        if (!lightbox || !lightboxVideo) return;
+
+        lightboxIndex = index;
+        loadLightboxVideo(lightboxIndex);
+
+        lightbox.classList.remove('hidden');
+        lightbox.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+    };
+
+    // Close fullscreen lightbox
+    const closeLightbox = () => {
+        if (!lightbox || !lightboxVideo) return;
+
+        lightboxVideo.pause();
+        lightbox.classList.add('hidden');
+        lightbox.classList.remove('flex');
+        document.body.style.overflow = '';
+    };
+
+    // Move to next video inside fullscreen lightbox
+    const nextLightboxVideo = () => {
+        lightboxIndex = lightboxIndex >= cards.length - 1 ? 0 : lightboxIndex + 1;
+        loadLightboxVideo(lightboxIndex);
+    };
+
+    // Move to previous video inside fullscreen lightbox
+    const prevLightboxVideo = () => {
+        lightboxIndex = lightboxIndex <= 0 ? cards.length - 1 : lightboxIndex - 1;
+        loadLightboxVideo(lightboxIndex);
+    };
+
     nextBtn.addEventListener('click', () => {
+        // If lightbox is open, move through fullscreen videos
+        if (lightbox && !lightbox.classList.contains('hidden')) {
+            nextLightboxVideo();
+            return;
+        }
+
         const visible = getVisibleCards();
         const maxIndex = Math.max(0, cards.length - visible);
 
@@ -254,6 +327,12 @@ export function initVideoCarousel() {
     });
 
     prevBtn.addEventListener('click', () => {
+        // If lightbox is open, move through fullscreen videos
+        if (lightbox && !lightbox.classList.contains('hidden')) {
+            prevLightboxVideo();
+            return;
+        }
+
         const visible = getVisibleCards();
         const maxIndex = Math.max(0, cards.length - visible);
 
@@ -272,51 +351,10 @@ export function initVideoCarousel() {
         }
     });
 
-    // Open video in fullscreen-style lightbox on mobile only
-    const openLightbox = (card) => {
-        if (!isMobileView() || !lightbox || !lightboxVideo) return;
-
-        const source = card.querySelector('source');
-        const video = card.querySelector('video');
-        if (!source || !video) return;
-
-        lightboxVideo.pause();
-        lightboxVideo.innerHTML = '';
-        lightboxVideo.poster = video.getAttribute('poster') || '';
-
-        const newSource = document.createElement('source');
-        newSource.src = source.getAttribute('src');
-        newSource.type = source.getAttribute('type') || 'video/mp4';
-
-        lightboxVideo.appendChild(newSource);
-        lightboxVideo.load();
-
-        lightbox.classList.remove('hidden');
-        lightbox.classList.add('flex');
-        document.body.style.overflow = 'hidden';
-
-        const playPromise = lightboxVideo.play();
-        if (playPromise && typeof playPromise.catch === 'function') {
-            playPromise.catch(() => {});
-        }
-    };
-
-    // Close mobile lightbox
-    const closeLightbox = () => {
-        if (!lightbox || !lightboxVideo) return;
-
-        lightboxVideo.pause();
-        lightbox.classList.add('hidden');
-        lightbox.classList.remove('flex');
-        document.body.style.overflow = '';
-    };
-
-    // Make cards tappable on mobile only
-    cards.forEach(card => {
+    // Make cards clickable on all screen sizes
+    cards.forEach((card, index) => {
         card.addEventListener('click', () => {
-            if (isMobileView()) {
-                openLightbox(card);
-            }
+            openLightbox(index);
         });
     });
 
@@ -341,10 +379,6 @@ export function initVideoCarousel() {
 
     // Resize handler
     window.addEventListener('resize', () => {
-        if (!isMobileView()) {
-            closeLightbox();
-        }
-
         setCardWidths();
         updateCarousel();
     });

@@ -144,7 +144,7 @@
     <div class="absolute inset-0 bg-zinc-950/40 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
 
     <video
-        class="w-full h-full object-cover pointer-events-none"
+        class="w-full h-full object-cover pointer-events-auto"
         autoplay
         loop
         muted
@@ -173,7 +173,7 @@
     <div class="absolute inset-0 bg-zinc-950/40 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
 
     <video
-        class="w-full h-full object-cover pointer-events-none"
+        class="w-full h-full object-cover pointer-events-auto"
         autoplay
         loop
         muted
@@ -202,7 +202,7 @@
     <div class="absolute inset-0 bg-zinc-950/40 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
 
     <video
-        class="w-full h-full object-cover pointer-events-none"
+        class="w-full h-full object-cover pointer-events-auto"
         autoplay
         loop
         muted
@@ -231,7 +231,7 @@
     <div class="absolute inset-0 bg-zinc-950/40 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
 
     <video
-        class="w-full h-full object-cover pointer-events-none"
+        class="w-full h-full object-cover pointer-events-auto"
         autoplay
         loop
         muted
@@ -260,7 +260,7 @@
     <div class="absolute inset-0 bg-zinc-950/40 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
 
     <video
-        class="w-full h-full object-cover pointer-events-none"
+        class="w-full h-full object-cover pointer-events-auto"
         autoplay
         loop
         muted
@@ -286,10 +286,10 @@
         </div>
     </div>
 
-    <!-- Mobile video fullscreen overlay -->
+    <!-- Video fullscreen overlay -->
     <div
         id="video-lightbox"
-        class="fixed inset-0 z-[100] bg-black/95 hidden items-center justify-center px-4 py-8 md:hidden"
+        class="fixed inset-0 z-[100] bg-black/95 hidden items-center justify-center px-4 py-8"
         aria-hidden="true"
     >
         <button
@@ -307,7 +307,6 @@
                 controls
                 autoplay
                 loop
-                muted
                 playsinline
                 preload="auto"
             ></video>
