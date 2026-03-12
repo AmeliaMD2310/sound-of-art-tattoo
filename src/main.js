@@ -201,6 +201,8 @@ export function initVideoCarousel() {
 
     let currentIndex = 0;
     let lightboxIndex = 0;
+    let touchStartX = 0;
+    let touchEndX = 0;
 
     // Maximum number of cards we want visible on desktop
     const MAX_VISIBLE = 3;
@@ -312,6 +314,20 @@ export function initVideoCarousel() {
         loadLightboxVideo(lightboxIndex);
     };
 
+    // Handle swipe gestures in fullscreen mode
+    const handleLightboxSwipe = () => {
+        const swipeDistance = touchEndX - touchStartX;
+
+        // Ignore very small movements so taps do not trigger navigation
+        if (Math.abs(swipeDistance) < 50) return;
+
+        if (swipeDistance < 0) {
+            nextLightboxVideo();
+        } else {
+            prevLightboxVideo();
+        }
+    };
+
     nextBtn.addEventListener('click', () => {
         // If lightbox is open, move through fullscreen videos
         if (lightbox && !lightbox.classList.contains('hidden')) {
@@ -368,12 +384,33 @@ export function initVideoCarousel() {
                 closeLightbox();
             }
         });
+
+        lightbox.addEventListener('touchstart', (e) => {
+            if (lightbox.classList.contains('hidden')) return;
+            touchStartX = e.changedTouches[0].clientX;
+        });
+
+        lightbox.addEventListener('touchend', (e) => {
+            if (lightbox.classList.contains('hidden')) return;
+            touchEndX = e.changedTouches[0].clientX;
+            handleLightboxSwipe();
+        });
     }
 
-    // Close lightbox on Escape
+    // Close lightbox on Escape and move between videos with arrow keys
     document.addEventListener('keydown', (e) => {
+        if (!lightbox || lightbox.classList.contains('hidden')) return;
+
         if (e.key === 'Escape') {
             closeLightbox();
+        }
+
+        if (e.key === 'ArrowRight') {
+            nextLightboxVideo();
+        }
+
+        if (e.key === 'ArrowLeft') {
+            prevLightboxVideo();
         }
     });
 
