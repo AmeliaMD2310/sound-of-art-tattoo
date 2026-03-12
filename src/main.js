@@ -68,38 +68,30 @@ export function initNavigation() {
 
             const linkUrl = new URL(href, window.location.origin);
 
-            // Highlight the current page link
-            if (linkUrl.pathname === pathname && !linkUrl.hash && !hash) {
-                link.classList.add('text-teal-400', 'border-b-2', 'border-teal-500');
-            }
+            const isHomePath =
+                pathname === '/' ||
+                pathname.endsWith('/index.html') ||
+                pathname.endsWith('/sound-of-art-tattoo/') ||
+                pathname.endsWith('/sound-of-art-tattoo');
+
+            const isLinkHome =
+                linkUrl.pathname === '/' ||
+                linkUrl.pathname.endsWith('/index.html') ||
+                linkUrl.pathname.endsWith('/sound-of-art-tattoo/') ||
+                linkUrl.pathname.endsWith('/sound-of-art-tattoo');
 
             // Highlight the current section link when the hash matches
             if (linkUrl.hash && linkUrl.hash === hash) {
                 link.classList.add('text-teal-400', 'border-b-2', 'border-teal-500');
             }
 
-            // Highlight the current page link even when a hash is present on that page
-            if (linkUrl.pathname === pathname && !linkUrl.hash && hash && pathname.endsWith('/index.html')) {
+            // Highlight the current page link only when there is no hash
+            if (linkUrl.pathname === pathname && !linkUrl.hash && !hash) {
                 link.classList.add('text-teal-400', 'border-b-2', 'border-teal-500');
             }
 
-            // Highlight Home when on the repo root with no hash
-            if (
-                (pathname.endsWith('/sound-of-art-tattoo/') || pathname.endsWith('/sound-of-art-tattoo')) &&
-                (linkUrl.pathname.endsWith('/sound-of-art-tattoo/') || linkUrl.pathname.endsWith('/sound-of-art-tattoo')) &&
-                !linkUrl.hash &&
-                !hash
-            ) {
-                link.classList.add('text-teal-400', 'border-b-2', 'border-teal-500');
-            }
-
-            // Highlight Home when on the repo root and a section hash is present
-            if (
-                (pathname.endsWith('/sound-of-art-tattoo/') || pathname.endsWith('/sound-of-art-tattoo')) &&
-                (linkUrl.pathname.endsWith('/sound-of-art-tattoo/') || linkUrl.pathname.endsWith('/sound-of-art-tattoo')) &&
-                !linkUrl.hash &&
-                hash
-            ) {
+            // Highlight Home only when on the home page and there is no section hash
+            if (isHomePath && isLinkHome && !linkUrl.hash && !hash) {
                 link.classList.add('text-teal-400', 'border-b-2', 'border-teal-500');
             }
         });
