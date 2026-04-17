@@ -1,40 +1,86 @@
-@import url('https://fonts.googleapis.com/css2?family=Special+Elite&family=Metal+Mania&family=Inter:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Beau+Rivage&family=Libre+Baskerville:wght@400;700&family=MonteCarlo&family=Inter:wght@400;700&display=swap');
 @import "tailwindcss";
 
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-grunge: "Special Elite", cursive;
-  --font-rock: "Metal Mania", cursive;
+  --font-elegant: "Libre Baskerville", Georgia, serif;
+  --font-script: "Beau Rivage", cursive;
+  --font-accent-script: "MonteCarlo", cursive;
 }
 
 @layer base {
+  html,
   body {
-    @apply bg-zinc-950 text-zinc-300 selection:bg-teal-500/30 selection:text-teal-200;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  body {
+    @apply bg-zinc-950 text-zinc-300 selection:bg-[#B38B34]/30 selection:text-[#F4E4C1];
     background-image: url("https://www.transparenttextures.com/patterns/white-diamond-dark.png");
+    position: relative;
   }
 }
 
+@utility elegant-text {
+  font-family: var(--font-elegant);
+}
+
+@utility beau-text {
+  font-family: var(--font-script);
+}
+
+@utility monte-carlo-text {
+  font-family: var(--font-accent-script);
+}
+
+/* Backward-compatible aliases */
 @utility grunge-text {
-  font-family: var(--font-grunge);
+  font-family: var(--font-elegant);
 }
 
 @utility rock-text {
-  font-family: var(--font-rock);
+  font-family: var(--font-script);
 }
 
 @utility distressed-border {
   position: relative;
-  border: 2px solid theme('colors.teal.900');
-  box-shadow: 4px 4px 0 theme('colors.teal.950');
+  border: 2px solid rgba(179, 139, 52, 0.45);
+  box-shadow: 4px 4px 0 rgba(90, 66, 18, 0.85);
 }
 
+@utility elegant-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+
+  /* subtle sepia overlay only */
+  background: rgba(90, 65, 35, 0.18);
+}
+
+/* Backward-compatible alias */
 @utility grunge-overlay {
   position: fixed;
   inset: 0;
   pointer-events: none;
   z-index: 9999;
-  opacity: 0.05;
+  opacity: 0.04;
   background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
+  background-repeat: repeat;
+  background-position: center;
+  background-size: auto;
+}
+
+.section-clip {
+  overflow-x: clip;
+}
+
+@supports not (overflow: clip) {
+  .section-clip {
+    overflow-x: hidden;
+  }
 }
 
 @layer components {
@@ -42,39 +88,138 @@
     content: '';
     position: absolute;
     inset: -4px;
-    border: 1px solid theme('colors.teal.500 / 20%');
+    border: 1px solid rgba(229, 193, 126, 0.2);
     pointer-events: none;
   }
 
   .filter-btn {
-    @apply px-6 py-2 border-2 border-teal-900/50 uppercase tracking-tighter transition-all duration-300 hover:border-teal-500 hover:text-teal-400 hover:-translate-y-1 hover:shadow-[4px_4px_0_rgba(20,184,166,0.2)];
-    font-family: var(--font-grunge);
+    @apply px-6 py-2 uppercase tracking-tighter transition-all duration-300 hover:-translate-y-1 hover:shadow-[4px_4px_0_rgba(179,139,52,0.25)];
+    border: 2px solid rgba(179, 139, 52, 0.5);
+    color: #E5C17E;
+    font-family: var(--font-elegant);
+  }
+
+  .filter-btn:hover {
+    border-color: #E5C17E;
+    color: #F4E4C1;
   }
 
   .filter-btn.active {
-    @apply bg-teal-600 text-zinc-950 border-teal-600 shadow-[4px_4px_0_rgba(0,0,0,0.5)];
+    background: #B38B34;
+    color: #09090b;
+    border-color: #B38B34;
+    box-shadow: 4px 4px 0 rgba(0,0,0,0.5);
   }
 }
 
 @keyframes splashGlowPulse {
   0% {
     text-shadow:
-      0 0 10px rgba(20,184,166,0.35),
-      0 0 24px rgba(20,184,166,0.25);
+      0 0 10px rgba(179,139,52,0.35),
+      0 0 24px rgba(179,139,52,0.25);
   }
 
   50% {
     text-shadow:
-      0 0 20px rgba(20,184,166,0.7),
-      0 0 40px rgba(20,184,166,0.5),
-      0 0 70px rgba(20,184,166,0.3);
+      0 0 20px rgba(229,193,126,0.7),
+      0 0 40px rgba(229,193,126,0.45),
+      0 0 70px rgba(244,228,193,0.25);
   }
 
   100% {
     text-shadow:
-      0 0 10px rgba(20,184,166,0.35),
-      0 0 24px rgba(20,184,166,0.25);
+      0 0 10px rgba(179,139,52,0.35),
+      0 0 24px rgba(179,139,52,0.25);
   }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.shimmer-text {
+  background: linear-gradient(
+    to right,
+    #B38B34 20%,
+    #E5C17E 40%,
+    #F4E4C1 50%,
+    #E5C17E 60%,
+    #B38B34 80%
+  );
+  background-size: 200% auto;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: shimmer 6s linear infinite;
+}
+
+.gold-glow {
+  text-shadow: 0 0 20px rgba(179, 139, 52, 0.4);
+}
+
+.beau-heading {
+  display: inline-block;
+  line-height: 1.24;
+  padding-top: 0.16em;
+  padding-bottom: 0.2em;
+}
+
+.beau-heading-xl {
+  display: inline-block;
+  line-height: 1.26;
+  padding-top: 0.18em;
+  padding-bottom: 0.22em;
+}
+
+.beau-heading-hero {
+  display: inline-block;
+  line-height: 1.24;
+  padding-top: 0.16em;
+  padding-bottom: 0.18em;
+  padding-left: 0.12em;
+  padding-right: 0.12em;
+  overflow: visible;
+}
+
+.script-heading-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.08em;
+  overflow: visible;
+  padding-left: 0.08em;
+  padding-right: 0.08em;
+}
+
+.elegant-heading {
+  display: inline-block;
+  line-height: 1.12;
+  padding-top: 0.12em;
+  padding-bottom: 0.18em;
+}
+
+.elegant-heading-large {
+  display: inline-block;
+  line-height: 1.08;
+  padding-top: 0.14em;
+  padding-bottom: 0.2em;
+}
+
+.elegant-section-heading {
+  display: inline-block;
+  line-height: 1.15;
+  padding-top: 0.12em;
+  padding-bottom: 0.18em;
+}
+
+.shimmer-safe {
+  display: inline-block;
+  line-height: 1.22;
+  padding-top: 0.14em;
+  padding-bottom: 0.18em;
+  padding-left: 0.08em;
+  padding-right: 0.08em;
+  overflow: visible;
 }
 
 .portfolio-reveal {
@@ -95,12 +240,12 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #0d9488;
+  background: #B38B34;
   border: 2px solid #09090b;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #14b8a6;
+  background: #E5C17E;
 }
 
 .glitch-hover:hover {
@@ -117,7 +262,11 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
+}
+
+#about {
+  scroll-margin-top: 110px;
 }
 
 body.splash-active {
@@ -151,17 +300,29 @@ html.splash-seen .splash-screen {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(to top, rgba(9, 9, 11, 0.95), rgba(9, 9, 11, 0.45)),
+    linear-gradient(to top, rgba(9, 9, 11, 0.9), rgba(9, 9, 11, 0.3)),
     url("/backgrounds/splash-screen-background.jpg") center/cover no-repeat;
-  filter: grayscale(50%) brightness(1.5);
-  transform: scale(1.05);
+  filter: grayscale(20%) sepia(18%) saturate(1.15) brightness(1.62) contrast(1.02);
+  transform: scale(1.03);
 }
 
 .splash-content {
   position: relative;
   z-index: 2;
-  text-align: center;
+  width: 100%;
   max-width: 56rem;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  text-align: center;
+  padding-bottom: clamp(7rem, 14vh, 10rem);
+}
+
+.splash-button-wrap {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 .splash-kicker {
@@ -169,18 +330,36 @@ html.splash-seen .splash-screen {
   letter-spacing: 0.45em;
   text-transform: uppercase;
   margin-bottom: 1rem;
+  font-family: var(--font-elegant);
 }
 
 .splash-logo {
-  font-family: var(--font-rock);
+  font-family: var(--font-script);
   font-size: clamp(3.5rem, 11vw, 7rem);
-  line-height: 0.95;
-  color: rgb(20 184 166);
-  text-transform: uppercase;
-  text-shadow:
-    0 0 10px rgba(20,184,166,0.35),
-    0 0 24px rgba(20,184,166,0.25);
-  animation: splashGlowPulse 3.5s ease-in-out infinite;
+  line-height: 1.14;
+  display: inline-block;
+  padding-top: 0.12em;
+  padding-bottom: 0.16em;
+  background: linear-gradient(
+    to right,
+    #B38B34 20%,
+    #E5C17E 40%,
+    #F4E4C1 50%,
+    #E5C17E 60%,
+    #B38B34 80%
+  );
+  background-size: 200% auto;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  text-shadow: 0 0 20px rgba(179, 139, 52, 0.25);
+  animation: shimmer 6s linear infinite;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+html.fonts-ready .splash-logo {
+  opacity: 1;
 }
 
 .splash-tagline {
@@ -189,33 +368,82 @@ html.splash-seen .splash-screen {
   color: rgba(228, 228, 231, 0.78);
   letter-spacing: 0.35em;
   text-transform: uppercase;
-  font-family: var(--font-grunge);
+  font-family: var(--font-elegant);
 }
 
 .enter-btn {
-  font-family: var(--font-rock);
-  font-size: clamp(1.1rem, 3vw, 1.5rem);
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  padding: 1rem 2.5rem;
-  border: 2px solid rgb(13 148 136);
-  color: rgb(20 184 166);
-  background: rgba(9, 9, 11, 0.65);
+  font-family: var(--font-script);
+  font-size: clamp(1.1rem, 2.2vw, 1.45rem);
+  letter-spacing: 0.04em;
+  padding: 0.75rem 2rem;
+  min-width: 15rem;
+  border: 2px solid #B38B34;
+  border-radius: 0.8rem;
+  color: #E5C17E;
+  background: rgba(9, 9, 11, 0.55);
   box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.9);
   transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, color 0.3s ease;
 }
 
 .enter-btn:hover {
-  background: rgb(20 184 166);
+  background: rgba(179, 139, 52, 0.9);
   color: rgb(9 9 11);
   transform: translate(2px, 2px);
   box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.9);
 }
 
 @media (max-width: 768px) {
+  .splash-content {
+    padding-bottom: clamp(6rem, 12vh, 8rem);
+  }
+
   .splash-kicker,
   .splash-tagline {
     letter-spacing: 0.2em;
   }
+
+  .enter-btn {
+    min-width: 13rem;
+    padding: 0.7rem 1.6rem;
+  }
+}
+.gold-outline-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-script);
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  letter-spacing: 0.08em;
+  padding: 0.9rem 2.25rem;
+  border: 2px solid #B38B34;
+  color: #E5C17E;
+  background: rgba(9, 9, 11, 0.65);
+  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.9);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, color 0.3s ease;
 }
 
+.gold-outline-button:hover {
+  background: #B38B34;
+  color: rgb(9 9 11);
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.9);
+}
+
+.gold-outline-button.is-small {
+  font-size: 1.2rem;
+  padding: 0.65rem 1.5rem;
+}
+
+.beau-safe {
+  display: inline-block;
+  line-height: 1.18;
+  padding-top: 0.12em;
+  padding-bottom: 0.16em;
+}
+
+@media (max-width: 768px) {
+  .gold-outline-button {
+    font-size: 1.15rem;
+    padding: 0.8rem 1.4rem;
+  }
+}
