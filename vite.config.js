@@ -8,7 +8,7 @@ const __dirname = path.dirname(__filename);
 
 export default defineConfig(() => {
   return {
-    base: '/sound-of-art-tattoo/',
+    base: './',
     plugins: [tailwindcss()],
     build: {
       rollupOptions: {
