@@ -18,7 +18,6 @@
                 <span class="beau-text shimmer-text gold-glow shimmer-safe text-4xl tracking-wide glitch-hover"> Sound of Art Tattoo</span>
             </a>
 
-            <!-- Nav Bar-->
             <nav class="hidden md:flex items-center gap-10">
                 <a href="./" class="elegant-text text-sm uppercase tracking-widest hover:text-[#E5C17E] transition-colors">Home</a>
                 <a href="./#about" class="elegant-text text-sm uppercase tracking-widest hover:text-[#E5C17E] transition-colors">About</a>
@@ -27,13 +26,13 @@
                 <a href="./aftercare.html" class="elegant-text text-sm uppercase tracking-widest hover:text-[#E5C17E] transition-colors">Aftercare</a>
                 <a href="./#contact" class="gold-outline-button is-small">Contact</a>
             </nav>
+
             <button id="mobile-menu-btn" class="md:hidden text-[#B38B34]" aria-label="Open menu">
                 <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
             </button>
         </div>
     </header>
 
-    <!-- Mobile Menu Overlay -->
     <div id="mobile-menu" class="fixed inset-0 z-[60] bg-zinc-950 flex flex-col items-center justify-center gap-10 opacity-0 pointer-events-none transition-opacity duration-300">
         <a href="./" class="beau-text text-5xl tracking-widest hover:text-[#E5C17E]">Home</a>
         <a href="./#about" class="beau-text text-5xl tracking-widest hover:text-[#E5C17E]">About</a>
@@ -74,7 +73,75 @@
 
     <main class="py-20 px-6 max-w-4xl mx-auto">
         <div class="space-y-6" id="faq-container">
-            <!-- (UNCHANGED FAQ CONTENT — exactly as you had it) -->
+            <div class="faq-item group border border-[#B38B34]/30 bg-zinc-900/50 backdrop-blur-sm hover:border-[#B38B34]/50 transition-all duration-300">
+                <button class="faq-trigger w-full flex items-center justify-between p-8 text-left" aria-expanded="false">
+                    <span class="elegant-text text-2xl md:text-3xl uppercase tracking-wider group-hover:text-[#E5C17E] transition-colors">How do I book an appointment?</span>
+                    <span class="faq-icon text-[#B38B34] transition-transform duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                    </span>
+                </button>
+                <div class="faq-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                    <div class="p-8 pt-0 elegant-text text-zinc-400 leading-relaxed text-lg border-t border-[#B38B34]/10 mt-4">
+                        Books typically open 3 times annually and booking is handled through social media during those times. Watch Instagram and Facebook for announcements about booking dates and details.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item group border border-[#B38B34]/30 bg-zinc-900/50 backdrop-blur-sm hover:border-[#B38B34]/50 transition-all duration-300">
+                <button class="faq-trigger w-full flex items-center justify-between p-8 text-left" aria-expanded="false">
+                    <span class="elegant-text text-2xl md:text-3xl uppercase tracking-wider group-hover:text-[#E5C17E] transition-colors">What styles do you specialize in?</span>
+                    <span class="faq-icon text-[#B38B34] transition-transform duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                    </span>
+                </button>
+                <div class="faq-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                    <div class="p-8 pt-0 elegant-text text-zinc-400 leading-relaxed text-lg border-t border-[#B38B34]/10 mt-4">
+                        I specialize in realism, portraits, black and grey work, and color tattoos with strong detail, depth, and smooth shading.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item group border border-[#B38B34]/30 bg-zinc-900/50 backdrop-blur-sm hover:border-[#B38B34]/50 transition-all duration-300">
+                <button class="faq-trigger w-full flex items-center justify-between p-8 text-left" aria-expanded="false">
+                    <span class="elegant-text text-2xl md:text-3xl uppercase tracking-wider group-hover:text-[#E5C17E] transition-colors">Do you do cover-ups?</span>
+                    <span class="faq-icon text-[#B38B34] transition-transform duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                    </span>
+                </button>
+                <div class="faq-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                    <div class="p-8 pt-0 elegant-text text-zinc-400 leading-relaxed text-lg border-t border-[#B38B34]/10 mt-4">
+                        Depending on the piece, at times yes. A consultation is usually needed first to see the existing piece, placement, and what result is realistically possible.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item group border border-[#B38B34]/30 bg-zinc-900/50 backdrop-blur-sm hover:border-[#B38B34]/50 transition-all duration-300">
+                <button class="faq-trigger w-full flex items-center justify-between p-8 text-left" aria-expanded="false">
+                    <span class="elegant-text text-2xl md:text-3xl uppercase tracking-wider group-hover:text-[#E5C17E] transition-colors">How should I prepare for my session?</span>
+                    <span class="faq-icon text-[#B38B34] transition-transform duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                    </span>
+                </button>
+                <div class="faq-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                    <div class="p-8 pt-0 elegant-text text-zinc-400 leading-relaxed text-lg border-t border-[#B38B34]/10 mt-4">
+                        Eat before your appointment, drink water, get a good nights sleep, and wear comfortable clothing that gives easy access to the tattoo area. Avoid alcohol or any blood thinning medications for 24 hours before your session.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item group border border-[#B38B34]/30 bg-zinc-900/50 backdrop-blur-sm hover:border-[#B38B34]/50 transition-all duration-300">
+                <button class="faq-trigger w-full flex items-center justify-between p-8 text-left" aria-expanded="false">
+                    <span class="elegant-text text-2xl md:text-3xl uppercase tracking-wider group-hover:text-[#E5C17E] transition-colors">Where can I see your latest work?</span>
+                    <span class="faq-icon text-[#B38B34] transition-transform duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                    </span>
+                </button>
+                <div class="faq-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                    <div class="p-8 pt-0 elegant-text text-zinc-400 leading-relaxed text-lg border-t border-[#B38B34]/10 mt-4">
+                        You can check the portfolio page and the recent reels on the home page, plus follow along on social media for fresh reels and recently completed work.
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
 
@@ -91,11 +158,33 @@
             </div>
         </div>
 
+        <!-- Contact Overlays -->
         <div class="absolute inset-0 z-[1] bg-zinc-950/50"></div>
         <div class="absolute inset-0 z-[1] opacity-10 bg-[url('https://www.transparenttextures.com/patterns/asfalt-dark.png')]"></div>
 
         <div class="max-w-7xl mx-auto px-6 text-center relative z-10">
-            <!-- unchanged -->
+            <div class="max-w-7xl mx-auto px-6 text-center relative z-10">
+                <h2 class="beau-text beau-heading-hero text-6xl md:text-8xl mb-4 overflow-visible">
+                    <span class="script-heading-wrap">
+                    <span>Get in</span>
+                    <span class="shimmer-text gold-glow shimmer-safe">Touch</span>
+                </span>
+            </h2>
+
+            <div class="flex justify-center gap-16">
+                <a href="https://www.instagram.com/sound_of_art_tattoo/" target="_blank" class="group flex flex-col items-center gap-6">
+                    <div class="w-24 h-24 border-2 border-[#B38B34]/30 flex items-center justify-center group-hover:bg-[#B38B34] group-hover:text-zinc-950 transition-all duration-300 rotate-[-4deg] group-hover:rotate-0 shadow-[8px_8px_0_rgba(0,0,0,1)]">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                    </div>
+                    <span class="elegant-text text-sm uppercase tracking-[0.3em] text-zinc-500 group-hover:text-[#E5C17E] transition-colors">Instagram</span>
+                </a>
+                <a href="https://www.facebook.com/daggyritztattooartist" target="_blank" class="group flex flex-col items-center gap-6">
+                    <div class="w-24 h-24 border-2 border-[#B38B34]/30 flex items-center justify-center group-hover:bg-[#B38B34] group-hover:text-zinc-950 transition-all duration-300 rotate-[4deg] group-hover:rotate-0 shadow-[8px_8px_0_rgba(0,0,0,1)]">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                    </div>
+                    <span class="elegant-text text-sm uppercase tracking-[0.3em] text-zinc-500 group-hover:text-[#E5C17E] transition-colors">Facebook</span>
+                </a>
+            </div>
         </div>
     </section>
 
